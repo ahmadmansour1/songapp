@@ -16,8 +16,10 @@ class ThemeApp extends StatelessWidget {
           bottomNavigationBarTheme: BottomNavigationBarThemeData(
             backgroundColor:Color(0xFF3B3B3B) ,
             selectedItemColor: Colors.white, // Customize the selected item color
+
             unselectedItemColor: Colors.white38, // Customize the unselected item color
           ),
+
         appBarTheme:const  AppBarTheme(
             color: Color(0xFF3B3B3B),
             elevation: 0.0

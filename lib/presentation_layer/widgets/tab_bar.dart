@@ -16,6 +16,7 @@ class _TabBarAppState extends State<TabBarApp> {
   Widget build(BuildContext context) {
 
     return Scaffold(bottomNavigationBar: BottomNavigationBar(
+      type: BottomNavigationBarType.fixed,
       currentIndex: _currentIndex,
       onTap: (index) {
         setState(() {
@@ -23,10 +24,10 @@ class _TabBarAppState extends State<TabBarApp> {
         });
       },
 
-        items: const [
-    BottomNavigationBarItem(icon:Icon(Icons.home, color: Colors.white10,),label: "home"),
+        items:  const [
+    BottomNavigationBarItem(icon:Icon(Icons.home_rounded,),label: "home",),
           BottomNavigationBarItem(icon:Icon(Icons.search),label: "search"),
-          BottomNavigationBarItem(icon:Icon(Icons.podcasts),label: "podcast"),
+          BottomNavigationBarItem(icon: Icon(Icons.library_music), label: "Podcast"),
           BottomNavigationBarItem(icon:Icon(Icons.settings),label: "settings"),] ,
 
 
@@ -37,7 +38,7 @@ class _TabBarAppState extends State<TabBarApp> {
       case 0:
         return const HomePage();
       default:
-        return const SizedBox.shrink();
+        return HomePage();
     }
   }
 }
