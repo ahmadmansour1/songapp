@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:songapp/presentation_layer/screens/home_page.dart';
+import 'package:songapp/presentation_layer/screens/podcast_page.dart';
 
 class TabBarApp extends StatefulWidget {
   const TabBarApp({super.key});
@@ -37,6 +38,10 @@ class _TabBarAppState extends State<TabBarApp> {
     switch (_currentIndex) {
       case 0:
         return const HomePage();
+      case 1:
+        return HomePage();
+      case 2:
+        return PodcastPage();
       default:
         return HomePage();
     }

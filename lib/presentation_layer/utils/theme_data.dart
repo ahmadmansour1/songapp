@@ -6,7 +6,17 @@ import '../widgets/tab_bar.dart';
 
 class ThemeApp extends StatelessWidget {
   const ThemeApp({super.key});
-
+  static final TextTheme myTextStyle = TextTheme(
+    titleMedium: TextStyle(
+      fontSize: 20,
+      color: Colors.white,
+      fontWeight: FontWeight.bold,
+    ),
+    titleSmall: TextStyle(
+      fontSize: 20,
+      color: Colors.white,
+    ),
+  );
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,6 +29,9 @@ class ThemeApp extends StatelessWidget {
 
             unselectedItemColor: Colors.white38, // Customize the unselected item color
           ),
+        textTheme: myTextStyle,
+
+
 
         appBarTheme:const  AppBarTheme(
             color: Color(0xFF3B3B3B),
