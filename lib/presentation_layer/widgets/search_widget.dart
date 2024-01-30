@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import '../../data/models/tracks_model.dart';
 
 class SongSearchDelegate extends SearchDelegate<String> {
-  final List<String> songs;
+  final List<Data> allSongs; // All songs to filter from
 
-  SongSearchDelegate(this.songs);
+  SongSearchDelegate( this.allSongs);
 
   @override
   List<Widget> buildActions(BuildContext context) {
@@ -38,8 +39,9 @@ class SongSearchDelegate extends SearchDelegate<String> {
   }
 
   Widget _buildSearchResults() {
-    final filteredSongs = songs
-        .where((song) => song.toLowerCase().contains(query.toLowerCase()))
+
+    final filteredSongs = allSongs
+        .where((song) => song.title?.toLowerCase().startsWith(query.toLowerCase()) ?? false)
         .toList();
 
     return ListView.builder(
@@ -47,9 +49,9 @@ class SongSearchDelegate extends SearchDelegate<String> {
       itemBuilder: (context, index) {
         final song = filteredSongs[index];
         return ListTile(
-          title: Text(song),
+          title: Text(song.title.toString()),
           onTap: () {
-            close(context, song);
+            close(context, '');
           },
         );
       },
