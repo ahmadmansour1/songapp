@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../data/models/tracks_model.dart';
-import '../../service/provider.dart';
+import '../../provider/provider.dart';
 import '../widgets/list_of_Songs.dart';
 import '../widgets/search_widget.dart';
 
@@ -28,6 +28,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("All Songs"),
+        centerTitle: false,
         actions: [
           IconButton(
             onPressed: () async {

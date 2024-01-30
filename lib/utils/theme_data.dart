@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../widgets/tab_bar.dart';
+
+import '../view/widgets/tab_bar.dart';
 
 class ThemeApp extends StatelessWidget {
    ThemeApp({super.key});

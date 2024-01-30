@@ -1,16 +1,14 @@
-import 'dart:async';
-import 'dart:ffi';
-import 'dart:io';
+
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:provider/provider.dart';
+import 'package:songapp/view/widgets/song_player.dart';
 import '../../data/models/tracks_model.dart';
-import '../../data/service.dart';
-import '../../service/provider.dart';
-import '../screens/playing_now.dart';
+import '../../provider/provider.dart';
+
 
 class ListOfSongs extends StatefulWidget {
   List<Data>? trackList;
@@ -97,7 +95,7 @@ class _ListOfSongsState extends State<ListOfSongs> {
               },
             ),
 
-            Positioned(
+        songsProvider.currentlyPlayingIndex != null ?   Positioned(
               left: 5,
               right: 5,
               bottom: 4,
@@ -127,80 +125,35 @@ class _ListOfSongsState extends State<ListOfSongs> {
                       right: 0,
                       left: 0,
                       bottom: 2,
-                      child: GestureDetector(
-                        onTap: (){
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => PlayNowScreen(),
-                            ),
-                          );
-                        },
-                        child: ListTile(
-                          leading: Container(
-                            width: 40,
-                            height: 40,
-                            decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
-                            ),
-                            child: Image.network('https://media.npr.org/assets/img/2013/06/17/davidblack-ca8a5d8bac16559aadf019c79f37450f57d3ed51-s1100-c50.jpg')
-                          ),
-                          title: Text(
-                            widget.trackList![songsProvider.currentlyPlayingIndex ?? 0].title
-                                .toString(),
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.white.withOpacity(0.8),
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          trailing: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              IconButton(
-                                icon: Icon(
-                                    Icons.pause, color: Colors.white),
-                                onPressed: () {
-                                  if (widget
-                                      .isPlayingList![songsProvider.currentlyPlayingIndex!] &&
-                                      widget.isPlayingList != null) {
-                                    songsProvider.playPause(
-                                        widget.trackList,
-                                        widget.isPlayingList,
-                                        songsProvider.currentlyPlayingIndex!);
-                                  }
-                                },
-                              ),
-                              IconButton(
-                                icon: Icon(
-                                    Icons.skip_next, color: Colors.white),
-                                onPressed: () {
-                                  songsProvider.playPause(
-                                      widget.trackList,
-                                      widget.isPlayingList,
-                                      songsProvider.currentlyPlayingIndex!);
-                                },
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
+                      child: SongPlayer(songsProvider: songsProvider),
                     ),
-                    const Positioned(
+                    Positioned(
                       bottom: 0,
                       right: 0,
                       left: 0,
-                      child: LinearProgressIndicator(
-                        value: 0.5,
-                        backgroundColor: Colors.transparent,
-                        valueColor:
-                        AlwaysStoppedAnimation<Color>(Colors.pinkAccent),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.3), // Shadow color
+                              spreadRadius: 2,  // Spread radius
+                              blurRadius: 5,    // Blur radius
+                              offset: Offset(0, -2), // Offset in the x and y directions
+                            ),
+                          ],
+                        ),
+                        child: LinearProgressIndicator(
+                          value: 0.5,
+                          backgroundColor: Colors.transparent,
+                          valueColor: AlwaysStoppedAnimation<Color>(Colors.pinkAccent),
+                        ),
                       ),
                     ),
                   ],
-                ),
+                )
+
               ),
-            ),
+            ) : Container(),
           ],
         );
       },

@@ -7,7 +7,9 @@ class PodcastPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-        appBar: AppBar(title: Text("Podcast")),
+      body: Center(
+        child: Text('Podcasts' , style: TextStyle(color: Colors.white , fontWeight: FontWeight.bold , fontSize: 20),),
+      ),
     );
   }
 }

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:songapp/presentation_layer/screens/home_page.dart';
-import 'package:songapp/presentation_layer/screens/podcast_page.dart';
+import 'package:songapp/view/screens/home_page.dart';
+import 'package:songapp/view/screens/search_page.dart';
+import 'package:songapp/view/screens/setting_page.dart';
+
+import '../screens/podcast_page.dart';
 
 class TabBarApp extends StatefulWidget {
   const TabBarApp({Key? key}) : super(key: key);
@@ -40,16 +43,20 @@ class _TabBarAppState extends State<TabBarApp> {
                       // Handle onTap for headphones button
                     },
                     child: CircleAvatar(
+
                       backgroundColor: Colors.pinkAccent,
-                      child: Icon(Icons.headphones, color: Colors.white),
+                      child: Icon(Icons.headphones, color: Colors.white , ),
                     ),
                   ),
                 ),
                 label: "",
               ),
+
               BottomNavigationBarItem(icon: Icon(Icons.podcasts), label: ""),
               BottomNavigationBarItem(icon: Icon(Icons.settings), label: ""),
+
             ],
+
           ),
           _buildDashIndicator(),
         ],
@@ -63,9 +70,11 @@ class _TabBarAppState extends State<TabBarApp> {
       case 0:
         return HomePage();
       case 1:
-        return HomePage();
-      case 2:
+        return SearchPage();
+      case 3:
         return PodcastPage();
+      case 4:
+        return SettingPage();
       default:
         return HomePage();
     }
