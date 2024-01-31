@@ -35,7 +35,7 @@ class ThemeApp extends StatelessWidget {
 
 
         appBarTheme:  AppBarTheme(
-            color: mainColor,
+            color: mainColor ,
             elevation: 0.0
         ),
         scaffoldBackgroundColor:  mainColor,

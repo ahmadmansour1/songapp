@@ -13,7 +13,7 @@ class SongSearchDelegate extends SearchDelegate<String> {
         onPressed: () {
           query = '';
         },
-        icon: Icon(Icons.clear),
+        icon: const Icon(Icons.clear),
       ),
     ];
   }
@@ -24,7 +24,7 @@ class SongSearchDelegate extends SearchDelegate<String> {
       onPressed: () {
         close(context, '');
       },
-      icon: Icon(Icons.arrow_back),
+      icon: const Icon(Icons.arrow_back),
     );
   }
 

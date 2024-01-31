@@ -14,7 +14,7 @@ class TabBarApp extends StatefulWidget {
 
 class _TabBarAppState extends State<TabBarApp> {
   int _currentIndex = 0;
-  double _dashWidth = 18.0;
+  final double _dashWidth = 18.0;
 
   @override
   Widget build(BuildContext context) {
@@ -32,17 +32,16 @@ class _TabBarAppState extends State<TabBarApp> {
             showSelectedLabels: false, // Hide labels
             showUnselectedLabels: false, // Hide labels
             items:  [
-              BottomNavigationBarItem(icon: Icon(Icons.home_rounded), label: ""),
-              BottomNavigationBarItem(icon: Icon(Icons.search), label: ""),
+              const BottomNavigationBarItem(icon: Icon(Icons.home_rounded), label: ""),
+              const BottomNavigationBarItem(icon: Icon(Icons.search), label: ""),
               BottomNavigationBarItem(
-                icon: Container(
+                icon: SizedBox(
                   width: 40.0,
                   height: 40.0,
                   child: GestureDetector(
                     onTap: () {
-                      // Handle onTap for headphones button
                     },
-                    child: CircleAvatar(
+                    child: const CircleAvatar(
 
                       backgroundColor: Colors.pinkAccent,
                       child: Icon(Icons.headphones, color: Colors.white , ),
@@ -52,8 +51,8 @@ class _TabBarAppState extends State<TabBarApp> {
                 label: "",
               ),
 
-              BottomNavigationBarItem(icon: Icon(Icons.podcasts), label: ""),
-              BottomNavigationBarItem(icon: Icon(Icons.settings), label: ""),
+              const BottomNavigationBarItem(icon: Icon(Icons.podcasts), label: ""),
+              const BottomNavigationBarItem(icon: Icon(Icons.settings), label: ""),
 
             ],
 
@@ -70,11 +69,11 @@ class _TabBarAppState extends State<TabBarApp> {
       case 0:
         return HomePage();
       case 1:
-        return SearchPage();
+        return const SearchPage();
       case 3:
-        return PodcastPage();
+        return const PodcastPage();
       case 4:
-        return SettingPage();
+        return const SettingPage();
       default:
         return HomePage();
     }

@@ -6,9 +6,10 @@ List<Data>? trackList;
 List<bool>? isPlayingList;
 
 class SongsService {
+  String baseUrl = 'https://api.deezer.com/album/302127/tracks';
   Future<List<Data>> fetchData() async {
     final response =
-    await http.get(Uri.parse('https://api.deezer.com/album/302127/tracks'));
+    await http.get(Uri.parse(baseUrl));
 
     if (response.statusCode == 200) {
       String decodedResponse = utf8.decode(response.bodyBytes);

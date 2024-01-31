@@ -15,7 +15,7 @@ class SongPlayer extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => PlayNowScreen(),
+            builder: (context) => const PlayNowScreen(),
           ),
         );
       },
@@ -26,8 +26,7 @@ class SongPlayer extends StatelessWidget {
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
             ),
-            child: Image.network(
-                'https://media.npr.org/assets/img/2013/06/17/davidblack-ca8a5d8bac16559aadf019c79f37450f57d3ed51-s1100-c50.jpg')),
+            child: Image.asset('assets/images/cc3a8569ce2b4d7b7efc05573ba76f9d@2x.png')),
         title: Text(
           songsProvider
               .trackList![songsProvider.currentlyPlayingIndex ?? 0].title
